@@ -1,0 +1,15 @@
+#create characters
+define s = Character("Sam")
+
+#When user click start button, story will begin
+label start:
+    #Background
+    scene black
+    
+    s "So this is my first visual novel." #Character name and script
+
+    s "Honestly... this feels kinda exciting." 
+
+    "The rain quietly fell outside the window." #Scene script
+
+    return #Go back to the main screen
