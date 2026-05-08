@@ -1,0 +1,36 @@
+menu:
+    
+    "Smile": #option 1
+        s "You smiled softly." #react 1
+
+    "Stay quiet": #option 2
+        s "You stayed silent." #react 2
+
+#when we combine in code
+
+define s = Character("Sam")
+
+label start:
+
+    scene bg room
+
+    s "Välkommen till mitt första spel!"
+
+    s "Welcome to my first game!"
+
+    menu:
+
+        "How are you feeling today?"
+
+        "Happy":
+            s "I'm glad to hear that."
+
+        "Tired":
+            s "Then you should rest a little."
+
+        "Excited":
+            s "Let's make something amazing together."
+
+    s "This is the end of the demo."
+
+    return
