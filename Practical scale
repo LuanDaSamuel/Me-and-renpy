@@ -1,0 +1,178 @@
+You actually should *not* spend huge amounts of time manually adjusting every image.
+Most VN developers avoid that by building a simple asset workflow.
+
+Since you:
+
+* don’t draw
+* use AI images
+* want to focus on story/game creation
+
+the best solution is to standardize your assets early.
+
+---
+
+# The easiest workflow for you
+
+## 1. Use fixed resolutions
+
+### Backgrounds
+
+Always generate/download:
+
+* 1920×1080
+* landscape
+* 16:9
+
+### Characters
+
+Always generate:
+
+* transparent PNG
+* portrait/full body
+* around 1200×2000
+
+If you keep consistency, you barely need adjustments later.
+
+---
+
+# 2. Use automatic scaling once
+
+Instead of adjusting every time:
+
+```renpy id="n1ap0m"
+image yuki = Transform("yuki.png", zoom=0.55)
+```
+
+Then every time:
+
+```renpy id="lc33lo"
+show yuki at center
+```
+
+Done.
+
+You scale ONCE globally.
+
+---
+
+# 3. Create a reusable positioning system
+
+Example:
+
+```renpy id="msqfvt"
+transform char_left:
+    zoom 0.55
+    xalign 0.2
+    yalign 1.0
+
+transform char_center:
+    zoom 0.55
+    xalign 0.5
+    yalign 1.0
+
+transform char_right:
+    zoom 0.55
+    xalign 0.8
+    yalign 1.0
+```
+
+Then:
+
+```renpy id="68d5jv"
+show yuki at char_center
+```
+
+or:
+
+```renpy id="e1d4n0"
+show keira at char_left
+```
+
+Now you never manually adjust again.
+
+This is how many VN developers work.
+
+---
+
+# 4. Use AI correctly
+
+When generating characters, include prompts like:
+
+```text id="zjlwmq"
+full body anime girl, transparent background, centered character, visual novel sprite
+```
+
+For backgrounds:
+
+```text id="f9y4ql"
+anime bedroom background, visual novel background, 1920x1080
+```
+
+This reduces cleanup work massively.
+
+---
+
+# 5. Important mindset
+
+Your job as an indie VN creator is NOT:
+
+* becoming a professional illustrator
+* perfectly editing every asset
+
+Your real focus is:
+
+* storytelling
+* scene direction
+* pacing
+* atmosphere
+* coding logic
+
+Asset pipelines should be simplified as much as possible.
+
+---
+
+# What most beginners do wrong
+
+They:
+
+* use random image sizes
+* mix portrait wallpapers with backgrounds
+* resize manually every scene
+* generate inconsistent AI images
+
+That creates chaos.
+
+Instead:
+
+* one standard background size
+* one standard sprite size
+* one standard zoom
+
+Everything becomes easy afterward.
+
+---
+
+# Best setup for your project
+
+## Backgrounds
+
+* JPG
+* 1920×1080
+
+## Character sprites
+
+* PNG transparent
+* ~1200×2000
+* zoom around `0.5–0.7`
+
+## Reusable transforms
+
+Create:
+
+* left
+* center
+* right
+
+Then reuse forever.
+
+That is already enough to make a clean beginner-to-intermediate Ren'Py VN pipeline.
